@@ -1,0 +1,63 @@
+name: pushl_lowdim
+
+
+
+# For single agent pushl
+obs_dim: 40 # 9*2 keypoints + 10*2 keypoints + 2 state
+action_dim: 2
+keypoint_dim: 2
+num_agents: 1
+
+
+obs_key: keypoint # keypoint, structured_keypoint
+state_key: state
+action_key: action
+
+
+# # For double agent pushl
+# obs_dim: 42 # 9*2 keypoints + 10*2 keypoints + 4 state
+# action_dim: 4
+# keypoint_dim: 2
+# obs_key: keypoint # keypoint, structured_keypoint
+# state_key: state
+# action_key: action1,action2 
+
+
+
+env_runner:
+  _target_: state_diff.env_runner.push_keypoints_runner.PushKeypointsRunner
+  keypoint_visible_rate: ${keypoint_visible_rate}
+  n_train: 6
+  n_train_vis: 2
+  train_start_seed: 0
+  n_test: 200 # 50
+  n_test_vis: 4
+  legacy_test: True
+  test_start_seed: 100000
+  max_steps: 500
+  n_obs_steps: ${n_obs_steps}
+  n_action_steps: ${n_action_steps}
+  n_latency_steps: ${n_latency_steps}
+  fps: 10
+  agent_keypoints: False
+  past_action: ${past_action_visible}
+  n_envs: null
+  obs_key: ${task.obs_key}
+  state_key: ${task.state_key}
+  action_key: ${task.action_key}
+
+  
+dataset:
+  _target_: state_diff.dataset.pusht_dataset.PushTLowdimDataset
+  zarr_path: data/pushl_data
+  horizon: ${horizon}
+  pad_before: ${eval:'${n_obs_steps}-1+${n_latency_steps}'}
+  pad_after: ${eval:'${n_action_steps}-1'}
+  seed: 42
+  val_ratio: 0.02
+  max_train_episodes: null
+  obs_key: ${task.obs_key}
+  state_key: ${task.state_key}
+  action_key: ${task.action_key}
+  num_episodes: 600
+
