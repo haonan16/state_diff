@@ -26,8 +26,8 @@ We recommend using [Mambaforge](https://gyithub.com/conda-forge/miniforge#mambaf
 
 2. Clone the repository:
     ```console
-    git clone --recursive https://github.com/haonan16/coord_bimanual/
-    cd coord_bimanual/
+    git clone https://github.com/haonan16/state_diff.git
+    cd state_diff/
     ```
 
 3. Update `mamba`, and create and activate the environment:
