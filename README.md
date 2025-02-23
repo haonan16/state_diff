@@ -36,7 +36,7 @@ We recommend using [Mambaforge](https://gyithub.com/conda-forge/miniforge#mambaf
 
     ```console
     mamba install mamba=1.5.1 -n base -c conda-forge
-    mamba env create -f conda_environment.yml
+    mamba env create -f conda_environment.yaml
     mamba activate coord_bimanual
     ```
 
