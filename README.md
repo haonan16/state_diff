@@ -55,6 +55,15 @@ Place the `pushl` dataset in the `data` folder. The directory structure should b
 To obtain the dataset, download the corresponding zip file and unzip it from the following link:  
 
 - [PushL Dataset](https://drive.google.com/file/d/1433HHxOH5nomDZ12aUZ4XZel4nVO_uwL/view?usp=sharing)
+  
+You can automate this process by running the following command:
+
+```console
+gdown https://drive.google.com/uc?id=1433HHxOH5nomDZ12aUZ4XZel4nVO_uwL -O data/pushl_dataset.zip
+unzip data/pushl_dataset.zip -d data/pushl_dataset
+rm data/pushl_dataset.zip
+```
+
 
 For datasets from other simulation benchmarks, you can find them here:  
 
