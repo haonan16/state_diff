@@ -60,7 +60,7 @@ You can automate this process by running the following command:
 
 ```console
 gdown https://drive.google.com/uc?id=1433HHxOH5nomDZ12aUZ4XZel4nVO_uwL -O data/pushl_dataset.zip
-unzip data/pushl_dataset.zip -d data/pushl_dataset
+unzip data/pushl_dataset.zip -d data
 rm data/pushl_dataset.zip
 ```
 
