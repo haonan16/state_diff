@@ -49,7 +49,7 @@ env_runner:
   
 dataset:
   _target_: state_diff.dataset.pusht_dataset.PushTLowdimDataset
-  zarr_path: data/pushl_data
+  zarr_path: data/pushl_dataset
   horizon: ${horizon}
   pad_before: ${eval:'${n_obs_steps}-1+${n_latency_steps}'}
   pad_after: ${eval:'${n_action_steps}-1'}
